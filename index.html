@@ -17,30 +17,38 @@
 		}
 		.subtitle,.title,.paragraph,.btn_style,.big_image_box,.small_image_box{
 			opacity: 0;
-		}
-		.owl-item.active .subtitle,
-		.owl-item.active .title,
-		.owl-item.active .paragraph,
-		.owl-item.active .btn_style,
-		.owl-item.active .big_image_box,
-		.owl-item.active .small_image_box{
-			opacity: 1;
 			transition: all .4s ease-in-out;
 		}
-		.owl-item.active .title{
+		.owl-item.active.owl-animated-in  .subtitle,
+		.owl-item.active.owl-animated-in  .title,
+		.owl-item.active.owl-animated-in  .paragraph,
+		.owl-item.active.owl-animated-in  .btn_style,
+		.owl-item.active.owl-animated-in  .big_image_box,
+		.owl-item.active.owl-animated-in  .small_image_box{
+			opacity: 1;
+		}
+		.owl-item.owl-animated-in  .title{
 			transition-delay: .4s;
 		}
-		.owl-item.active .paragraph{
+		.owl-item.owl-animated-in  .paragraph{
 			transition-delay: .8s;
 		}
-		.owl-item.active .btn_style{
+		.owl-item.owl-animated-in  .btn_style{
 			transition-delay: 1.2s;
 		}
-		.owl-item.active .big_image_box{
+		.owl-item.owl-animated-in  .big_image_box{
 			transition-delay: .6s;
 		}
-		.owl-item.active .small_image_box{
+		.owl-item.owl-animated-in  .small_image_box{
 			transition-delay: 1s;
+		}
+		.owl-item.owl-animated-in.owl-animated-out .subtitle,
+		.owl-item.owl-animated-in.owl-animated-out .title,
+		.owl-item.owl-animated-in.owl-animated-out .paragraph,
+		.owl-item.owl-animated-in.owl-animated-out .btn_style,
+		.owl-item.owl-animated-in.owl-animated-out .big_image_box,
+		.owl-item.owl-animated-in.owl-animated-out .small_image_box{
+			opacity: 0;
 		}
 		.owl-nav{
 			position: absolute;
@@ -204,7 +212,6 @@
 	<div class="page_wrap">
 		<br>
 		<br>
-		<br>
 		<div class="container">
 			<div class="slider owl-carousel">
 				<div class="item">
@@ -264,6 +271,26 @@
 						</div>
 						<div class="small_image_box">
 							<img src="https://source.unsplash.com/random/300x182" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="content_box">
+						<h4 class="subtitle">Sub-Title 1</h4>
+						<h1 class="title">Main Title</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque,
+							dolor itaque molestiae nemo possimus repellendus vitae voluptas. Fuga iure
+							maxime perferendis quis! A accusamus doloribus fuga in sit voluptatum.
+						</p>
+						<button class="btn btn_style">Button</button>
+					</div>
+					<div class="image_box">
+						<div class="big_image_box">
+							<img src="https://source.unsplash.com/random/500x501" alt="">
+						</div>
+						<div class="small_image_box">
+							<img src="https://source.unsplash.com/random/300x181" alt="">
 						</div>
 					</div>
 				</div>
