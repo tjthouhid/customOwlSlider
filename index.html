@@ -19,12 +19,18 @@
 			opacity: 0;
 			transition: all .4s ease-in-out;
 		}
-		.owl-item.active.owl-animated-in  .subtitle,
-		.owl-item.active.owl-animated-in  .title,
-		.owl-item.active.owl-animated-in  .paragraph,
-		.owl-item.active.owl-animated-in  .btn_style,
-		.owl-item.active.owl-animated-in  .big_image_box,
-		.owl-item.active.owl-animated-in  .small_image_box{
+		.owl-item.active  .subtitle,
+		.owl-item.active  .title,
+		.owl-item.active  .paragraph,
+		.owl-item.active  .btn_style,
+		.owl-item.active  .big_image_box,
+		.owl-item.active  .small_image_box,
+		.owl-item.owl-animated-in  .subtitle,
+		.owl-item.owl-animated-in  .title,
+		.owl-item.owl-animated-in  .paragraph,
+		.owl-item.owl-animated-in  .btn_style,
+		.owl-item.owl-animated-in  .big_image_box,
+		.owl-item.owl-animated-in  .small_image_box{
 			opacity: 1;
 		}
 		.owl-item.owl-animated-in  .title{
@@ -40,6 +46,21 @@
 			transition-delay: .6s;
 		}
 		.owl-item.owl-animated-in  .small_image_box{
+			transition-delay: 1s;
+		}
+		.owl-item.active  .title{
+			transition-delay: .4s;
+		}
+		.owl-item.active  .paragraph{
+			transition-delay: .8s;
+		}
+		.owl-item.active  .btn_style{
+			transition-delay: 1.2s;
+		}
+		.owl-item.active  .big_image_box{
+			transition-delay: .6s;
+		}
+		.owl-item.active  .small_image_box{
 			transition-delay: 1s;
 		}
 		.owl-item.owl-animated-in.owl-animated-out .subtitle,
