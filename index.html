@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Custom Slider</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
+	<style>
+		*{
+			font-family: 'roboto',sans-serif;
+			box-sizing: border-box;
+		}
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.subtitle,.title,.paragraph,.btn_style,.big_image_box,.small_image_box{
+			opacity: 0;
+		}
+		.owl-item.active .subtitle,
+		.owl-item.active .title,
+		.owl-item.active .paragraph,
+		.owl-item.active .btn_style,
+		.owl-item.active .big_image_box,
+		.owl-item.active .small_image_box{
+			opacity: 1;
+			transition: all .4s ease-in-out;
+		}
+		.owl-item.active .title{
+			transition-delay: .4s;
+		}
+		.owl-item.active .paragraph{
+			transition-delay: .8s;
+		}
+		.owl-item.active .btn_style{
+			transition-delay: 1.2s;
+		}
+		.owl-item.active .big_image_box{
+			transition-delay: .6s;
+		}
+		.owl-item.active .small_image_box{
+			transition-delay: 1s;
+		}
+		.owl-nav{
+			position: absolute;
+			bottom: 5px;
+			right: 11.4%;
+		}
+		.owl-dots {
+			counter-reset: slides-num;
+			position: absolute;
+			bottom: 0;
+			right: calc(11.4% - 50px);
+			margin-bottom: 8px;
+		}
+		.owl-dots:after {
+			content: counter(slides-num);
+			display: inline-block;
+			font-size: 20px;
+			vertical-align: middle;
+			padding-left: 5px;
+			color: #00C18C;
+		}
+		.owl-dot {
+			display: inline-block;
+			counter-increment: slides-num;
+			/* Increment counter */
+			margin-right: 5px;
+		}
+		.owl-dot span {
+			display: none;
+		}
+		.owl-dot.active:before {
+			content: counter(slides-num) "/ ";
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 20px;
+			position: absolute;
+			left: 0;
+			top: 0;
+			color: #00C18C;
+		}
+		.container{
+			max-width: 1170px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+		.item{
+			display: flex;
+			align-items: center;
+			gap: 30px;
+		}
+		.content_box{
+			max-width: 50%;
+			width: 100%;
+		}
+		.subtitle{
+			text-transform: uppercase;
+			color: #1E7BE3;
+			font-size: 16px;
+			font-weight: 700;
+		}
+		.title{
+			text-transform: uppercase;
+			color: #1E7BE3;
+			margin: 30px 0;
+			font-weight: 700;
+		}
+		.paragraph{
+			margin-bottom: 50px;
+		}
+		.image_box {
+			max-width: 500px;
+			width: 100%;
+			position: relative;
+		}
+		.big_image_box {
+			width: 100%;
+			height: 500px;
+			background: #000;
+			overflow: hidden;
+		}
+		.btn_style{
+			background-color: #1E7BE3;
+			color: #fff;
+			padding: 12px 40px;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		.small_image_box {
+			width: 300px;
+			height: 180px;
+			border-radius: 20px;
+			background: #2196f3;
+			margin-left: 40px;
+			margin-top: -140px;
+			overflow: hidden;
+			position: relative;
+			z-index: 1;
+		}
+		.customPrevBtn,.customNextBtn{
+			color: #fff;
+			background-color: #28a745;
+			border-color: #fff;
+			width: 35px;
+			height: 35px;
+			display: block;
+			font-size: 26px;
+			line-height: 32px;
+			cursor: pointer;
+		}
+		button:focus{
+			outline: none;
+		}
+		.owl-carousel .owl-item img {
+			width: auto;
+		}
+		@media screen and (max-width: 768px) {
+			.big_image_box{
+				height: 350px;
+			}
+			.owl-nav {
+				right: 23%;
+			}
+			.owl-dots {
+				right: calc(23% - 50px);
+			}
+			.item {
+				flex-flow: column-reverse;
+			}
+			.content_box{
+				max-width: 500px;
+			}
+		}
+		@media screen and (max-width: 425px) {
+			.big_image_box{
+				height: 300px;
+			}
+			.small_image_box {
+				width: 250px;
+				height: 150px;
+				margin-left: 20px;
+				margin-top: -120px;
+			}
+			.owl-nav {
+				right: 12%;
+			}
+			.owl-dots {
+				right: calc(12% - 50px);
+			}
+		}
+		@media screen and (max-width: 375px) {
+			.owl-dots {
+				right: calc(12% - 40px);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page_wrap">
+		<br>
+		<br>
+		<br>
+		<div class="container">
+			<div class="slider owl-carousel">
+				<div class="item">
+					<div class="content_box">
+						<h4 class="subtitle">Sub-Title 1</h4>
+						<h1 class="title">Main Title</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque,
+							dolor itaque molestiae nemo possimus repellendus vitae voluptas. Fuga iure
+							maxime perferendis quis! A accusamus doloribus fuga in sit voluptatum.
+						</p>
+						<button class="btn btn_style">Button</button>
+					</div>
+					<div class="image_box">
+						<div class="big_image_box">
+							<img src="https://source.unsplash.com/random/500x500" alt="">
+						</div>
+						<div class="small_image_box">
+							<img src="https://source.unsplash.com/random/300x180" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="content_box">
+						<h4 class="subtitle">Sub-Title 1</h4>
+						<h1 class="title">Main Title</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque,
+							dolor itaque molestiae nemo possimus repellendus vitae voluptas. Fuga iure
+							maxime perferendis quis! A accusamus doloribus fuga in sit voluptatum.
+						</p>
+						<button class="btn btn_style">Button</button>
+					</div>
+					<div class="image_box">
+						<div class="big_image_box">
+							<img src="https://source.unsplash.com/random/500x501" alt="">
+						</div>
+						<div class="small_image_box">
+							<img src="https://source.unsplash.com/random/300x181" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="item">
+					<div class="content_box">
+						<h4 class="subtitle">Sub-Title 1</h4>
+						<h1 class="title">Main Title</h1>
+						<p class="paragraph">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus atque,
+							dolor itaque molestiae nemo possimus repellendus vitae voluptas. Fuga iure
+							maxime perferendis quis! A accusamus doloribus fuga in sit voluptatum.
+						</p>
+						<button class="btn btn_style">Button</button>
+					</div>
+					<div class="image_box">
+						<div class="big_image_box">
+							<img src="https://source.unsplash.com/random/500x502" alt="">
+						</div>
+						<div class="small_image_box">
+							<img src="https://source.unsplash.com/random/300x182" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" ></script>
+	<script>
+		$(document).ready(function () {
+            var owl = $('.owl-carousel');
+
+            owl.owlCarousel({
+	            autoplay: true,
+                loop:true,
+	            nav: true,
+                navText: ['<span class="customPrevBtn"><</span>', '<span class="customNextBtn">></span>'],
+                items:1,
+                dots: true,
+                mouseDrag: false,
+                touchDrag: false,
+                pullDrag: false,
+                freeDrag: false,
+                animateIn: "fadeIn",
+                animateOut: 'fadeOut'
+            });
+        });
+	</script>
+</body>
+</html>
